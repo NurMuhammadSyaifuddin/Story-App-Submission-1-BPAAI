@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/activity_detail_scene">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_poster"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.4" />
+
+    <ImageView
+        android:id="@+id/img_poster"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_0"
+        android:scaleType="centerCrop"
+        android:src="@color/gray"
+        app:layout_constraintBottom_toBottomOf="@id/guideline_poster"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="contentDescription" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_32"
+        android:layout_marginTop="@dimen/dp_24"
+        android:layout_marginEnd="@dimen/dp_32"
+        app:cardCornerRadius="@dimen/dp_8"
+        app:cardElevation="@dimen/dp_12"
+        app:cardMaxElevation="@dimen/dp_12"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/guideline">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_24">
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:textColor="@color/textColorPrimaryDark"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Nur Muhammad Syaifuddin" />
+
+            <View
+                android:id="@+id/view_main"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_2"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@color/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+            <TextView
+                android:id="@+id/tv_address"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/poppins_regular"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="@dimen/sp_12"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_main"
+                tools:text="Hari ini saya mengerjakan submission 1 kelas Belajar Pengembangan Aplikasi Android Intermediate" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_maps"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_24"
+        app:cardCornerRadius="@dimen/dp_8"
+        app:cardElevation="@dimen/dp_12"
+        app:cardMaxElevation="@dimen/dp_12"
+        app:layout_constraintEnd_toEndOf="@id/card_main"
+        app:layout_constraintStart_toStartOf="@id/card_main"
+        app:layout_constraintTop_toBottomOf="@id/card_main">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_24">
+
+            <TextView
+                android:id="@+id/text_view_maps"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="@string/maps"
+                android:textColor="@color/textColorPrimaryDark"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:id="@+id/view_maps"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="@dimen/dp_2"
+                android:layout_marginTop="@dimen/dp_16"
+                android:background="@color/textColorPrimary"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_view_maps" />
+
+            <ImageView
+                android:id="@+id/img_maps"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_24"
+                android:src="@drawable/img_maps"
+                app:layout_constraintEnd_toEndOf="@id/view_maps"
+                app:layout_constraintStart_toStartOf="@id/view_maps"
+                app:layout_constraintTop_toBottomOf="@id/view_maps"
+                tools:ignore="ContentDescription" />
+
+            <Button
+                android:id="@+id/btn_start_navigation"
+                android:layout_width="@dimen/dp_0"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:fontFamily="@font/poppins_medium"
+                android:text="@string/start_navigation"
+                app:layout_constraintEnd_toEndOf="@id/img_maps"
+                app:layout_constraintStart_toStartOf="@id/img_maps"
+                app:layout_constraintTop_toBottomOf="@id/img_maps" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.motion.widget.MotionLayout>
