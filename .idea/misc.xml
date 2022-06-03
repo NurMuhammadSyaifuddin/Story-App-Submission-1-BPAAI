@@ -3,12 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable-v24/ic_circle_full_24.xml" value="0.145" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/bg_btn_green.xml" value="0.1405" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/bg_edit_text.xml" value="0.1405" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/bg_item_clicked.xml" value="0.1405" />
+        <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/bg_take_picture.xml" value="0.145" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/ic_google_icon.xml" value="0.1405" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/ic_setting.xml" value="0.1405" />
-        <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_detail.xml" value="0.33" />
+        <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_add_story.xml" value="0.2" />
+        <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_detail.xml" value="0.19933554817275748" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_login.xml" value="0.22" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_sign_up.xml" value="0.22" />
@@ -16,7 +19,34 @@
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/item_list_place_holder.xml" value="0.17074275362318841" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/item_list_story.xml" value="0.25" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/menu/option_menu.xml" value="0.22447916666666667" />
+        <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/xml/activity_add_story_scene.xml" value="0.22447916666666667" />
         <entry key="..\:/ACTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/xml/fragment_detail_scene.xml" value="0.22447916666666667" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable-v24/bg_btn_primary.xml" value="0.191" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable-v24/bg_dialog.xml" value="0.191" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable-v24/bg_dialog_content.xml" value="0.191" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable-v24/ic_baseline_clear_24.xml" value="0.145" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable-xxxhdpi/bg_pick.xml" value="0.191" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable-xxxhdpi/ic_gallery.xml" value="0.191" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/bg_take_picture.xml" value="0.213" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/ic_baseline_download_24.xml" value="0.213" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/ic_baseline_person_24.xml" value="0.191" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/drawable/ic_camera.xml" value="0.231" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_add.xml" value="0.17074275362318841" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_add_story.xml" value="0.25" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_detail.xml" value="0.22" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_login.xml" value="0.17074275362318841" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_profile.xml" value="0.18" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_settings.xml" value="0.17074275362318841" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_sign_up.xml" value="0.17074275362318841" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/activity_splash.xml" value="0.18" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/dialog_success_create_account.xml" value="0.17074275362318841" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/item_list_place_holder.xml" value="0.25" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/item_list_story.xml" value="0.22" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/layout_bottom_pick.xml" value="0.17074275362318841" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/layout/layout_loading.xml" value="0.17074275362318841" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/menu/option_menu.xml" value="0.1" />
+        <entry key="..\:/AKTIVITAS/FASIL DICODING/BPAAI/StoryApp/app/src/main/res/xml/activity_add_story_scene.xml" value="0.22447916666666667" />
       </map>
     </option>
   </component>

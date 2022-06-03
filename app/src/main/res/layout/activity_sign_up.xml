@@ -51,7 +51,7 @@
             app:layout_constraintStart_toStartOf="@id/text_view_sign_up"
             app:layout_constraintTop_toBottomOf="@id/text_view_sign_up">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.project.storyapp.customview.EditTextClear
                 android:id="@+id/edt_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -78,7 +78,7 @@
             app:layout_constraintStart_toStartOf="@id/text_input_name"
             app:layout_constraintTop_toBottomOf="@id/text_input_name">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.project.storyapp.customview.EditTextEmail
                 android:id="@+id/edt_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -106,7 +106,7 @@
             app:layout_constraintStart_toStartOf="@id/text_input_email"
             app:layout_constraintTop_toBottomOf="@id/text_input_email">
 
-            <com.google.android.material.textfield.TextInputEditText
+            <com.project.storyapp.customview.EditTextPassword
                 android:id="@+id/edt_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -114,34 +114,6 @@
                 android:fontFamily="@font/poppins_regular"
                 android:gravity="center_vertical"
                 android:hint="@string/password"
-                android:inputType="textPassword"
-                android:padding="@dimen/dp_16"
-                android:textColor="@color/textColorPrimary"
-                android:textSize="@dimen/sp_16"
-                tools:ignore="Autofill" />
-
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_confirm_password"
-            android:layout_width="@dimen/dp_0"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_16"
-            app:endIconMode="password_toggle"
-            app:errorEnabled="true"
-            app:hintEnabled="false"
-            app:layout_constraintEnd_toEndOf="@id/text_input_password"
-            app:layout_constraintStart_toStartOf="@id/text_input_password"
-            app:layout_constraintTop_toBottomOf="@id/text_input_password">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/edt_confirm_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/bg_edit_text"
-                android:fontFamily="@font/poppins_regular"
-                android:gravity="center_vertical"
-                android:hint="@string/confirm_password"
                 android:inputType="textPassword"
                 android:padding="@dimen/dp_16"
                 android:textColor="@color/textColorPrimary"
@@ -158,9 +130,9 @@
             android:fontFamily="@font/poppins_medium"
             android:text="@string/creating_account_policy"
             android:textAlignment="center"
-            app:layout_constraintEnd_toEndOf="@id/text_input_confirm_password"
-            app:layout_constraintStart_toStartOf="@id/text_input_confirm_password"
-            app:layout_constraintTop_toBottomOf="@id/text_input_confirm_password" />
+            app:layout_constraintEnd_toEndOf="@id/text_input_password"
+            app:layout_constraintStart_toStartOf="@id/text_input_password"
+            app:layout_constraintTop_toBottomOf="@id/text_input_password" />
 
         <Button
             android:id="@+id/btn_sign_up"
@@ -174,8 +146,7 @@
             android:layout_marginBottom="@dimen/dp_32"
             app:layout_constraintEnd_toEndOf="@id/text_view_creating_account"
             app:layout_constraintStart_toStartOf="@id/text_view_creating_account"
-            app:layout_constraintTop_toBottomOf="@id/text_view_creating_account"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toBottomOf="@id/text_view_creating_account"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

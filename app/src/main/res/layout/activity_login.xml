@@ -33,7 +33,7 @@
         app:layout_constraintStart_toStartOf="@id/text_view_login"
         app:layout_constraintTop_toBottomOf="@id/text_view_login">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.project.storyapp.customview.EditTextEmail
             android:id="@+id/edt_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -61,7 +61,7 @@
         app:layout_constraintStart_toStartOf="@id/text_input_email"
         app:layout_constraintTop_toBottomOf="@id/text_input_email">
 
-        <com.google.android.material.textfield.TextInputEditText
+        <com.project.storyapp.customview.EditTextPassword
             android:id="@+id/edt_password"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

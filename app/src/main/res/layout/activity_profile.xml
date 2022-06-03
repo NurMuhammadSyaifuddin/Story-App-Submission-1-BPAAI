@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:elevation="@dimen/dp_0"
+        app:title="@string/my_account"
+        app:titleTextAppearance="@style/TitleToolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:titleTextColor="@color/textColorPrimary" />
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_avatar_profile"
+        android:layout_width="@dimen/dp_150"
+        android:layout_height="@dimen/dp_150"
+        android:src="@android:color/darker_gray"
+        android:layout_marginTop="@dimen/dp_32"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_name_admin"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        tools:text="Nur Muhammad Syaifuddin"
+        android:gravity="center"
+        android:textSize="@dimen/sp_16"
+        android:paddingHorizontal="@dimen/dp_40"
+        android:textColor="@color/textColorPrimary"
+        android:fontFamily="@font/poppins_semibold"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        app:layout_constraintTop_toBottomOf="@id/img_avatar_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_email_admin"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_4"
+        android:fontFamily="@font/poppins_regular"
+        android:gravity="center"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintTop_toBottomOf="@id/tv_name_admin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="nurm9301@gmail.com" />
+
+
+    <TextView
+        android:id="@+id/tv_change_language"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_48"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/change_language"
+        android:textColor="@color/textColorPrimaryDark"
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintTop_toBottomOf="@id/tv_email_admin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:background="@color/grey_2"
+        app:layout_constraintTop_toBottomOf="@id/tv_change_language"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:layout_marginTop="@dimen/dp_16"
+        android:fontFamily="@font/poppins_regular"
+        android:text="@string/logout"
+        android:textColor="@color/textColorPrimaryDark"
+        android:textSize="@dimen/sp_18"
+        app:layout_constraintTop_toBottomOf="@id/view1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_1"
+        android:layout_marginHorizontal="@dimen/dp_16"
+        android:background="@color/grey_2"
+        app:layout_constraintTop_toBottomOf="@id/tv_logout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
