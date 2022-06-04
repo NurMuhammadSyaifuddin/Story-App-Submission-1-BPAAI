@@ -3,7 +3,8 @@ package com.project.storyapp.ui.splash
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.project.storyapp.R
+import android.os.Handler
+import android.os.Looper
 import com.project.storyapp.databinding.ActivitySplashBinding
 import com.project.storyapp.ui.login.LoginActivity
 import com.project.storyapp.ui.main.MainActivity
@@ -35,13 +36,20 @@ class SplashActivity : AppCompatActivity() {
                         finish()
                     }
                 }else{
-                    Intent(this@SplashActivity,LoginActivity::class.java).also { intent ->
-                        startActivity(intent)
-                        finish()
-                    }
+                    Handler(Looper.getMainLooper())
+                        .postDelayed({
+                            Intent(this@SplashActivity,LoginActivity::class.java).also { intent ->
+                                startActivity(intent)
+                                finish()
+                            }
+                        }, DELAY_SPLASH)
                 }
             }
 
         }
+    }
+
+    companion object{
+        private const val DELAY_SPLASH = 400L
     }
 }

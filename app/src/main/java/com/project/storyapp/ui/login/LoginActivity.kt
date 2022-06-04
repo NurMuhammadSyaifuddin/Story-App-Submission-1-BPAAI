@@ -82,12 +82,13 @@ class LoginActivity : AppCompatActivity() {
                         val login = it.data
 
                         if (login != null) {
+                            viewModel.saveUserSession(true)
+                            viewModel.saveUserToken(login.loginResult.token)
+
                             Intent(this@LoginActivity, MainActivity::class.java).also { intent ->
                                 startActivity(intent)
                                 finishAffinity()
                             }
-                            viewModel.saveUserSession(true)
-                            viewModel.saveUserToken(login.loginResult.token)
                         } else
                             this@LoginActivity.showToast(getString(R.string.login_failed))
 

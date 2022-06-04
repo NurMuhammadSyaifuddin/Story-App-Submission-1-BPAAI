@@ -19,5 +19,9 @@
     <color name="bg_pink">#e91e63</color>
     <color name="bg_pink_dark">#b0003a</color>
     <color name="bg_pink_light">#ff6090</color>
+    <color name="light_blue_50">#FFE1F5FE</color>
+    <color name="light_blue_200">#FF81D4FA</color>
+    <color name="light_blue_600">#FF039BE5</color>
+    <color name="light_blue_900">#FF01579B</color>
 
 </resources>

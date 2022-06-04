@@ -32,15 +32,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="parent" />
-        <Constraint
-            android:id="@+id/fab_download"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/dp_20"
-            android:layout_marginBottom="@dimen/dp_16"
-            app:layout_constraintBottom_toBottomOf="@id/img_poster"
-            android:alpha="1" />
     </ConstraintSet>
 
     <Transition

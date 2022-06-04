@@ -14,7 +14,7 @@ import com.project.storyapp.utils.loadImage
 
 class StoriesAdapter: RecyclerView.Adapter<StoriesAdapter.ViewHolder>() {
 
-    private var listener: ((Story) -> Unit)? = null
+    private var listener: ((Story, ItemListStoryBinding) -> Unit)? = null
 
     var stories = mutableListOf<Story>()
     set(value) {
@@ -35,7 +35,7 @@ class StoriesAdapter: RecyclerView.Adapter<StoriesAdapter.ViewHolder>() {
 
                 listener?.let {
                     itemView.setOnClickListener {
-                        it(story)
+                        it(story, binding)
                     }
                 }
             }
@@ -53,7 +53,7 @@ class StoriesAdapter: RecyclerView.Adapter<StoriesAdapter.ViewHolder>() {
 
     override fun getItemCount(): Int = stories.size
 
-    fun onClick(listener: ((Story) -> Unit)?){
+    fun onClick(listener: ((Story, ItemListStoryBinding) -> Unit)?){
         this.listener = listener
     }
 }

@@ -1,15 +1,17 @@
 package com.project.storyapp.ui.main
 
+import android.app.ActivityOptions
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Pair
 import android.view.Menu
 import android.view.MenuItem
 import com.project.core.data.source.Resource
 import com.project.core.domain.model.Story
 import com.project.storyapp.R
 import com.project.storyapp.databinding.ActivityMainBinding
-import com.project.storyapp.ui.ProfileActivity
+import com.project.storyapp.ui.settings.SettingsActivity
 import com.project.storyapp.ui.add.AddStoryActivity
 import com.project.storyapp.ui.detail.DetailActivity
 import com.project.storyapp.utils.gone
@@ -34,9 +36,16 @@ class MainActivity : AppCompatActivity() {
 
         // init
         adapter = StoriesAdapter().apply {
-            onClick {
+            onClick { story, itemListStoryBinding ->
+                val optionsCompat = ActivityOptions.makeSceneTransitionAnimation(this@MainActivity,
+                Pair(itemListStoryBinding.imgPoster, "image_story"),
+                    Pair(itemListStoryBinding.tvName, "name"),
+                    Pair(itemListStoryBinding.tvUploadTimeStory, "uploaded_story")
+                )
+
                 Intent(this@MainActivity, DetailActivity::class.java).also { intent ->
-                    startActivity(intent)
+                    intent.putExtra(DetailActivity.DATA_STORY, story)
+                    startActivity(intent, optionsCompat.toBundle())
                 }
             }
         }
@@ -59,6 +68,7 @@ class MainActivity : AppCompatActivity() {
                 if (isNewStory != null && isNewStory) {
                     swipeMain.isRefreshing = true
                     getStories()
+                    this@MainActivity.showToast(getString(R.string.story_uploaded))
                 }
             }
         }
@@ -153,8 +163,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_profile -> {
-                Intent(this, ProfileActivity::class.java).also { intent ->
+            R.id.action_settings -> {
+                Intent(this, SettingsActivity::class.java).also { intent ->
                     startActivity(intent)
                 }
             }

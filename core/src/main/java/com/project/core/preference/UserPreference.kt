@@ -24,6 +24,14 @@ class UserPreference(private val dataStore: DataStore<Preferences>) {
             it[userKey] ?: false
         }
 
+    suspend fun removeUserIsLogin(){
+        dataStore.edit {
+            if(it.contains(userKey)){
+                it.remove(userKey)
+            }
+        }
+    }
+
     suspend fun saveUserToken(token: String) =
         dataStore.edit {
             it[userToken] = token
@@ -33,6 +41,14 @@ class UserPreference(private val dataStore: DataStore<Preferences>) {
         dataStore.data.map {
             it[userToken]
         }
+
+    suspend fun removeUserToken(){
+        dataStore.edit {
+            if (it.contains(userToken)){
+                it.remove(userToken)
+            }
+        }
+    }
 
     companion object{
         private const val USER_KEY = "user_key"

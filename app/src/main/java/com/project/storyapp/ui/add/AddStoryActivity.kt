@@ -64,7 +64,7 @@ class AddStoryActivity : AppCompatActivity() {
                 .map { it.isNotBlank() }
 
             descriptionStream.subscribe {
-                if (it && imgUploadStory.drawable != null){
+                if (it && file != null){
                     btnUploadImage.enable()
                 } else btnUploadImage.disable()
             }

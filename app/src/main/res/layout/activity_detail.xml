@@ -24,8 +24,9 @@
         android:id="@+id/img_poster"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_0"
+        android:background="@color/gray"
         android:scaleType="fitCenter"
-        android:src="@color/gray"
+        android:transitionName="image_story"
         app:layout_constraintBottom_toBottomOf="@id/guideline_poster"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -33,22 +34,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="contentDescription" />
-
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fab_download"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/dp_20"
-        android:layout_marginTop="@dimen/dp_16"
-        android:backgroundTint="@color/bg_pink"
-        android:clickable="true"
-        android:focusable="true"
-        android:src="@drawable/ic_baseline_download_24"
-        app:borderWidth="@dimen/dp_0"
-        app:layout_constraintTop_toTopOf="@id/img_poster"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:tint="@color/white"
-        tools:ignore="ContentDescription" />
     
     <androidx.cardview.widget.CardView
         android:id="@+id/card_main"
@@ -74,6 +59,7 @@
                 android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_semibold"
+                android:transitionName="name"
                 android:textColor="@color/textColorPrimaryDark"
                 android:textSize="@dimen/sp_16"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -87,6 +73,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_regular"
                 android:textSize="@dimen/sp_12"
+                android:transitionName="uploaded_story"
                 android:textColor="@color/textColorPrimary"
                 tools:text="uploaded at 31 May 2022 00:00"
                 app:layout_constraintTop_toBottomOf="@id/tv_name"
@@ -104,7 +91,7 @@
                 app:layout_constraintTop_toBottomOf="@id/tv_uploaded_story" />
 
             <TextView
-                android:id="@+id/tv_address"
+                android:id="@+id/tv_desc"
                 android:layout_width="@dimen/dp_0"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/dp_16"

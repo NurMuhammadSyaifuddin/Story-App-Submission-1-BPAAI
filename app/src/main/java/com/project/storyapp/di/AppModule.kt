@@ -5,6 +5,7 @@ import com.project.core.domain.usecase.StoryUseCase
 import com.project.storyapp.ui.add.AddStoryViewModel
 import com.project.storyapp.ui.login.LoginViewModel
 import com.project.storyapp.ui.main.MainViewModel
+import com.project.storyapp.ui.settings.SettingsViewModel
 import com.project.storyapp.ui.signup.SignUpViewModel
 import com.project.storyapp.ui.splash.SplashViewModel
 import org.koin.android.viewmodel.dsl.viewModel
@@ -20,4 +21,5 @@ val viewModelModule = module {
     viewModel { MainViewModel(get(), get()) }
     viewModel { SplashViewModel(get()) }
     viewModel { AddStoryViewModel(get(), get()) }
+    viewModel { SettingsViewModel(get()) }
 }
