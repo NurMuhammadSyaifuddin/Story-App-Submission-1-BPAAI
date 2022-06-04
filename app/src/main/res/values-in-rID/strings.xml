@@ -12,10 +12,6 @@
     <string name="settings">Pengaturan</string>
     <string name="add_story">Tambah Cerita</string>
     <string name="upload">Unggah</string>
-    <string name="upload_image">Unggah gambar</string>
-    <string name="add_description">Tambah Deskripsi</string>
-    <string name="upload_story">Unggah Cerita</string>
-    <string name="describe_your_story">Deskripsikan Ceritamu</string>
     <string name="description">Deskripsi</string>
     <string name="email_invalid">Format email salah</string>
     <string name="password_less_than_6">Password kurang dari 6 karakter</string>

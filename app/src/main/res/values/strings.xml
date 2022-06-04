@@ -12,10 +12,6 @@
     <string name="settings">Settings</string>
     <string name="add_story">Add Story</string>
     <string name="upload">Upload</string>
-    <string name="upload_image">Upload Image</string>
-    <string name="add_description">Add Description</string>
-    <string name="upload_story">Upload Story</string>
-    <string name="describe_your_story">Describe your story</string>
     <string name="description">Description</string>
     <string name="email_invalid">Email format is invalid</string>
     <string name="password_less_than_6">Password less then 6</string>
