@@ -1,5 +1,6 @@
 package com.project.storyapp.ui.add
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
 import com.project.core.domain.usecase.StoryUseCase
@@ -8,7 +9,12 @@ import kotlinx.coroutines.flow.first
 import java.io.File
 
 class AddStoryViewModel(private val pref: UserPreference, private val storyUseCase: StoryUseCase): ViewModel() {
-    fun doUploadStory(token: String, image: File, description: String) = storyUseCase.doUploadStory(token, image, description).asLiveData()
+
+    val isLocationPicked = MutableLiveData(false)
+    val latitude = MutableLiveData(0.0)
+    val longitude = MutableLiveData(0.0)
+
+    fun doUploadStory(token: String, image: File, description: String, lat: String, lon: String) = storyUseCase.doUploadStory(token, image, description, lat, lon).asLiveData()
 
     suspend fun getUserToken() = pref.getUserToken().first()
 }

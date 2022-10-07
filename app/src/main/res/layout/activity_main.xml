@@ -88,49 +88,5 @@
             app:tint="@color/white"
             tools:ignore="ContentDescription" />
 
-        <ImageView
-            android:id="@+id/img_empty_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/image_no_data"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@id/title_empty_state"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            app:layout_constraintVertical_chainStyle="packed"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/title_empty_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/empty_state_title_no_stories_item"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/desc_empty_state"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/img_empty_state"
-            app:layout_constraintVertical_chainStyle="packed" />
-
-        <TextView
-            android:id="@+id/desc_empty_state"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/poppins_regular"
-            android:text="@string/you_don_t_have_a_list_of_stories"
-            android:textColor="#494848"
-            android:textSize="14sp"
-            android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/title_empty_state" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

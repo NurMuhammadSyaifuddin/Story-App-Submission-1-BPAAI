@@ -1,6 +1,7 @@
 package com.project.storyapp
 
 import android.app.Application
+import com.project.core.di.databaseModule
 import com.project.core.di.networkModule
 import com.project.core.di.preferenceModule
 import com.project.core.di.repositoryModule
@@ -23,7 +24,8 @@ class BaseApplication : Application() {
                 repositoryModule,
                 useCaseModule,
                 viewModelModule,
-                preferenceModule
+                preferenceModule,
+                databaseModule
             )
         }
 

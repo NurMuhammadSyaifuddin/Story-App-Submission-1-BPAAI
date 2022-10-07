@@ -35,4 +35,26 @@
     <string name="not_getting_permission">Not getting permission</string>
     <string name="choose_a_picture">Choose a picture</string>
     <string name="story_uploaded">Story uploaded</string>
+    <string name="select_location">Select Location</string>
+    <string name="your_location_optional">Your location (optional)</string>
+    <string name="please_select_the_location_area_first">Please select the location area first</string>
+    <string name="continue_next">Continue</string>
+    <string name="cancel">Cancel</string>
+    <string name="OK">OK</string>
+    <string name="UI_validation_maps_area">The location must be selected first. Tap on the desired location to select the location</string>
+    <string name="needed_permission">This feature requires the permission</string>
+    <string name="const_text_select_location">Select location</string>
+    <string name="const_text_tooltip_pin_location">( Click to select location )</string>
+    <string name="explore_location">Explore Location</string>
+    <string name="location_not_found">Location not found</string>
+    <string name="const_text_tooltip_view_story">( Click to see story )</string>
+    <string name="UI_validation_permission_location">Give the app access to read your location</string>
+    <string name="const_text_location_story">Story Location</string>
+    <string name="no_location">No Location</string>
+    <string name="const_text_adapter_maps_default">Default View (Country)</string>
+    <string name="const_text_adapter_maps_province">Around My Province</string>
+    <string name="const_text_adapter_maps_city">Around My City</string>
+    <string name="const_text_adapter_maps_district">Around My District</string>
+    <string name="const_text_adapter_maps_around">Around My Location</string>
+    <string name="const_text_try_again">Try again</string>
 </resources>

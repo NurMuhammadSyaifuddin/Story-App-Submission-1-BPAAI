@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.project.storyapp">
 
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.any" />
 
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission
         android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="18" />
+        tools:ignore="ScopedStorage" />
 
     <queries>
         <intent>
@@ -33,6 +36,16 @@
         android:theme="@style/Theme.StoryApp"
         android:usesCleartextTraffic="true">
 
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAJbcWtD-mavpY-aXIuwtsqq-roqaajc0M" />
+
+        <activity
+            android:name=".ui.explore_location.ExploreLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.add.AddLocationPickActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.settings.SettingsActivity"
             android:exported="false" />
@@ -59,7 +72,7 @@
             android:exported="true" />
         <activity
             android:name=".ui.main.MainActivity"
-            android:exported="true"/>
+            android:exported="true" />
 
         <provider
             android:name="androidx.core.content.FileProvider"

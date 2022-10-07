@@ -33,7 +33,9 @@ class RemoteDataSource(private val apiService: ApiService) {
                     ) {
                         if (response.isSuccessful) {
                             if (response.body() != null)
-                                trySendBlocking(ApiResponse.Success(response.body())) else trySendBlocking(ApiResponse.Empty)
+                                trySendBlocking(ApiResponse.Success(response.body())) else trySendBlocking(
+                                ApiResponse.Empty
+                            )
                         } else {
                             response.errorBody()?.let {
                                 val errorResponse = JSONObject(it.string())
@@ -103,7 +105,7 @@ class RemoteDataSource(private val apiService: ApiService) {
             awaitClose { service.cancel() }
         }
 
-    fun doUploadStory(token: String, image: File, description: String) =
+    fun doUploadStory(token: String, image: File, description: String, lat: String, lon: String) =
         callbackFlow {
 
             try {
@@ -116,7 +118,16 @@ class RemoteDataSource(private val apiService: ApiService) {
                 val imageMultiPart =
                     MultipartBody.Part.createFormData("photo", file.name, requestImageFile)
 
-                val service = apiService.doUploadStory(token, imageMultiPart, storyDescription)
+                val latitude = lat.toRequestBody("text/plain".toMediaType())
+                val longitude = lon.toRequestBody("text/plain".toMediaType())
+
+                val service = apiService.doUploadStory(
+                    token,
+                    imageMultiPart,
+                    storyDescription,
+                    latitude,
+                    longitude
+                )
 
                 service
                     .enqueue(object : Callback<StoryUploadResponse> {
@@ -155,10 +166,26 @@ class RemoteDataSource(private val apiService: ApiService) {
 
         }
 
-    suspend fun getStories(token: String): Flow<ApiResponse<List<StoryResponse>>> =
+    suspend fun getStories(token: String, page: Int, size: Int): Flow<ApiResponse<List<StoryResponse>>> =
         callbackFlow {
             try {
-                val response = apiService.getStories(token).listStory
+                val response = apiService.getStories(token, page, size).listStory
+                if (response.isNotEmpty()) trySendBlocking(ApiResponse.Success(response)) else trySendBlocking(
+                    ApiResponse.Empty
+                )
+            } catch (e: Exception) {
+                Timber.e(e.message.toString())
+                trySendBlocking(ApiResponse.Error(e.message.toString()))
+            }
+        }
+
+    suspend fun getStoriesLocation(
+        token: String,
+        size: Int
+    ): Flow<ApiResponse<List<StoryResponse>>> =
+        callbackFlow {
+            try {
+                val response = apiService.getStoriesLocation(token, size).listStory
                 if (response.isNotEmpty()) trySendBlocking(ApiResponse.Success(response)) else trySendBlocking(
                     ApiResponse.Empty
                 )

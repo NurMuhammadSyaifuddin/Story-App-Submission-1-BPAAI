@@ -30,7 +30,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/toolbar"
-        tools:ignore="ContentDescription" />
+        tools:ignore="ContentDescription"
+        tools:srcCompat="@tools:sample/avatars"/>
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/text_input_description"
@@ -40,7 +41,7 @@
         android:layout_marginStart="@dimen/dp_16"
         android:layout_marginEnd="@dimen/dp_16"
         app:hintEnabled="false"
-        app:layout_constraintBottom_toTopOf="@id/btn_upload_image"
+        app:layout_constraintBottom_toTopOf="@id/btn_select_location"
         app:layout_constraintEnd_toEndOf="@id/img_upload_story"
         app:layout_constraintStart_toStartOf="@id/img_upload_story"
         app:layout_constraintTop_toBottomOf="@id/img_upload_story">
@@ -62,6 +63,67 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <RelativeLayout
+        android:id="@+id/btn_select_location"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/custom_widget_story"
+        android:padding="8dp"
+        app:layout_constraintStart_toStartOf="@id/text_input_description"
+        app:layout_constraintTop_toBottomOf="@+id/text_input_description"
+        app:layout_constraintBottom_toTopOf="@id/text_input_location">
+
+        <ImageView
+            android:id="@+id/ic_pin"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:src="@drawable/ic_location"
+            app:tint="@color/white"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_toEndOf="@+id/ic_pin"
+            android:text="@string/select_location"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/text_input_location"
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_marginEnd="@dimen/dp_16"
+        app:hintEnabled="false"
+        app:layout_constraintBottom_toTopOf="@id/btn_upload_image"
+        app:layout_constraintEnd_toEndOf="@id/img_upload_story"
+        app:layout_constraintStart_toStartOf="@id/img_upload_story"
+        app:layout_constraintTop_toBottomOf="@id/btn_select_location">
+
+        <TextView
+            android:id="@+id/edt_location"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/bg_edit_text"
+            android:fontFamily="@font/poppins_regular"
+            android:gravity="start"
+            android:hint="@string/your_location_optional"
+            android:focusable="false"
+            android:enabled="false"
+            android:textColor="@color/textColorPrimary"
+            android:inputType="none"
+            android:padding="@dimen/dp_16"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/sp_16"
+            tools:ignore="Autofill"
+            tools:text="@string/your_location_optional" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/btn_upload_image"
         android:layout_width="@dimen/dp_0"
@@ -75,6 +137,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/text_input_description"
         app:layout_constraintStart_toStartOf="@id/text_input_description"
-        app:layout_constraintTop_toBottomOf="@id/text_input_description" />
+        app:layout_constraintTop_toBottomOf="@id/text_input_location" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

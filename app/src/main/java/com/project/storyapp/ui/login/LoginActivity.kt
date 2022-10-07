@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.appcompat.app.AlertDialog
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.project.core.data.source.Resource
@@ -85,10 +87,17 @@ class LoginActivity : AppCompatActivity() {
                             viewModel.saveUserSession(true)
                             viewModel.saveUserToken(login.loginResult.token)
 
-                            Intent(this@LoginActivity, MainActivity::class.java).also { intent ->
-                                startActivity(intent)
-                                finishAffinity()
-                            }
+                            Handler(Looper.getMainLooper())
+                                .postDelayed({
+                                    Intent(
+                                        this@LoginActivity,
+                                        MainActivity::class.java
+                                    ).also { intent ->
+                                        startActivity(intent)
+                                        finishAffinity()
+                                    }
+                                }, 200L)
+
                         } else
                             this@LoginActivity.showToast(getString(R.string.login_failed))
 

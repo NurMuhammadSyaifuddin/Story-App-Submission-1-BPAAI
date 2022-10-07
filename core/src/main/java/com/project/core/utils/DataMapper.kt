@@ -1,9 +1,7 @@
 package com.project.core.utils
 
-import com.project.core.data.source.remote.response.LoginResponse
-import com.project.core.data.source.remote.response.RegisterResponse
-import com.project.core.data.source.remote.response.StoryResponse
-import com.project.core.data.source.remote.response.StoryUploadResponse
+import com.project.core.data.source.local.entity.StoryEntity
+import com.project.core.data.source.remote.response.*
 import com.project.core.domain.model.Login
 import com.project.core.domain.model.Register
 import com.project.core.domain.model.Story
@@ -42,5 +40,29 @@ object DataMapper {
                 it.lon
             )
         }
+
+    fun mapResponseToEntityStories(input: List<StoryResponse>): List<StoryEntity> =
+        input.map {
+            StoryEntity(
+                it.id,
+                it.name,
+                it.description,
+                it.photoUrl,
+                it.createdAt,
+                it.lat,
+                it.lon
+            )
+        }
+
+    fun mapEntitiyToDomainStory(input: StoryEntity): Story =
+        Story(
+            input.id,
+            input.name.toString(),
+            input.description.toString(),
+            input.photoUrl.toString(),
+            input.createdAt.toString(),
+            input.lat,
+            input.lon
+        )
 
 }

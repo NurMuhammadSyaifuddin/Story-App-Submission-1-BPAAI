@@ -1,5 +1,6 @@
 package com.project.core.domain.usecase
 
+import androidx.paging.PagingData
 import com.project.core.data.source.Resource
 import com.project.core.domain.model.Login
 import com.project.core.domain.model.Register
@@ -21,7 +22,10 @@ class StoryInteractor(private val storyRepository: IStoryRepository): StoryUseCa
     override fun doUploadStory(
         token: String,
         image: File,
-        description: String
-    ): Flow<Resource<StoryUpload>> = storyRepository.doUploadStory(token, image, description)
-    override fun getStories(token: String): Flow<Resource<List<Story>>>  = storyRepository.getStories(token)
+        description: String,
+        lat: String,
+        lon: String
+    ): Flow<Resource<StoryUpload>> = storyRepository.doUploadStory(token, image, description, lat, lon)
+    override fun getStories(token: String): Flow<PagingData<Story>> = storyRepository.getStories(token)
+    override fun getStoriesLocation(token: String, size: Int): Flow<Resource<List<Story>>> = storyRepository.getStoriesLocation(token, size)
 }

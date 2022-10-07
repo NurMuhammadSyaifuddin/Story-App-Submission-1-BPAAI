@@ -6,6 +6,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import com.project.storyapp.R
+import com.project.storyapp.databinding.CustomDialogInfoBinding
 import com.project.storyapp.databinding.DialogSuccessCreateAccountBinding
 
 class CustomDialog {

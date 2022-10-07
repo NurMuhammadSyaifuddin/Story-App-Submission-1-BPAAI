@@ -34,5 +34,22 @@
     <string name="gallery">Galeri</string>
     <string name="not_getting_permission">Tidak mendapatkan permission</string>
     <string name="choose_a_picture">Pilih foto</string>
-    <string name="story_uploaded">Story uploaded</string>
+    <string name="story_uploaded">Cerita terunggah</string>
+    <string name="select_location">Pilih Lokasi</string>
+    <string name="your_location_optional">Lokasimu (opsional)</string>
+    <string name="please_select_the_location_area_first">Silakan pilih area lokasi terlebih dahulu</string>
+    <string name="continue_next">Lanjut</string>
+    <string name="cancel">Batal</string>
+    <string name="OK">OK</string>
+    <string name="UI_validation_maps_area">Lokasi harus dipilih terlebih dahulu. Ketuk lokasi yang diinginkan untuk memilih lokasi</string>
+    <string name="needed_permission">Fitur ini membutuhkan izin</string>
+    <string name="const_text_select_location">Pilih Lokasi</string>
+    <string name="const_text_tooltip_pin_location">( Klik untuk memilih lokasi )</string>
+    <string name="explore_location">Eksplor Lokasi</string>
+    <string name="location_not_found">Lokasi tidak ditemukan</string>
+    <string name="const_text_tooltip_view_story">( Klik untuk melihat cerita )</string>
+    <string name="UI_validation_permission_location">Berikan akses aplikasi untuk membaca lokasi Anda</string>
+    <string name="const_text_location_story">Lokasi Cerita</string>
+    <string name="no_location">Tidak ada Lokasi</string>
+    <string name="const_text_try_again">Coba lagi</string>
 </resources>

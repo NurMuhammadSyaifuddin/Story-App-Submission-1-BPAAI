@@ -103,6 +103,34 @@
                 app:layout_constraintTop_toBottomOf="@id/view_main"
                 tools:text="Hari ini saya mengerjakan submission 1 kelas Belajar Pengembangan Aplikasi Android Intermediate" />
 
+            <TextView
+                android:id="@+id/text_view_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_16"
+                android:text="@string/const_text_location_story"
+                android:textColor="@color/textColorPrimaryDark"
+                android:textSize="@dimen/sp_16"
+                app:layout_constraintTop_toBottomOf="@id/tv_desc"
+                app:layout_constraintStart_toStartOf="@id/tv_desc"/>
+
+            <TextView
+                android:id="@+id/tv_location"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_8"
+                android:autofillHints=""
+                android:background="@drawable/custom_story_desc"
+                android:gravity="start"
+                android:lineHeight="20dp"
+                android:padding="8dp"
+                android:textSize="12sp"
+                tools:ignore="UnusedAttribute"
+                tools:text="@tools:sample/lorem"
+                app:layout_constraintTop_toBottomOf="@id/text_view_location"
+                app:layout_constraintStart_toStartOf="@id/text_view_location"
+                app:layout_constraintEnd_toEndOf="@id/text_view_location"/>
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>

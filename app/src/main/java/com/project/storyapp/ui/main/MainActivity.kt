@@ -7,27 +7,25 @@ import android.os.Bundle
 import android.util.Pair
 import android.view.Menu
 import android.view.MenuItem
-import com.project.core.data.source.Resource
-import com.project.core.domain.model.Story
 import com.project.storyapp.R
 import com.project.storyapp.databinding.ActivityMainBinding
 import com.project.storyapp.ui.settings.SettingsActivity
 import com.project.storyapp.ui.add.AddStoryActivity
 import com.project.storyapp.ui.detail.DetailActivity
+import com.project.storyapp.ui.explore_location.ExploreLocationActivity
 import com.project.storyapp.utils.gone
+import com.project.storyapp.utils.scope
 import com.project.storyapp.utils.showToast
 import com.project.storyapp.utils.visible
 import kotlinx.coroutines.*
 import org.koin.android.viewmodel.ext.android.viewModel
-import timber.log.Timber
-import java.util.concurrent.Executors
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private val viewModel: MainViewModel by viewModel()
 
-    private lateinit var adapter: StoriesAdapter
+    private lateinit var storiesAdapter: StoriesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,10 +33,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // init
-        adapter = StoriesAdapter().apply {
+        storiesAdapter = StoriesAdapter().apply {
             onClick { story, itemListStoryBinding ->
-                val optionsCompat = ActivityOptions.makeSceneTransitionAnimation(this@MainActivity,
-                Pair(itemListStoryBinding.imgPoster, "image_story"),
+                val optionsCompat = ActivityOptions.makeSceneTransitionAnimation(
+                    this@MainActivity,
+                    Pair(itemListStoryBinding.imgPoster, "image_story"),
                     Pair(itemListStoryBinding.tvName, "name"),
                     Pair(itemListStoryBinding.tvUploadTimeStory, "uploaded_story")
                 )
@@ -63,7 +62,7 @@ class MainActivity : AppCompatActivity() {
         binding.apply {
             if (intent != null) {
 
-                val isNewStory = intent.extras?.getBoolean(SUCCESS_UPLOAD_STORY)
+                val isNewStory = intent.extras?.getBoolean(SUCCESS_UPLOAD_STORY, false)
 
                 if (isNewStory != null && isNewStory) {
                     swipeMain.isRefreshing = true
@@ -91,62 +90,31 @@ class MainActivity : AppCompatActivity() {
 
     private fun getStories() {
         binding.apply {
-            val dispatcher = Executors.newSingleThreadExecutor().asCoroutineDispatcher()
-            val scope = CoroutineScope(dispatcher)
 
+            loading.visible()
+
+            storiesAdapter.refresh()
             scope.launch {
                 val token = "Bearer ${viewModel.getUserToken()}"
 
                 withContext(Dispatchers.Main) {
-                    viewModel.getStories(token).observe(this@MainActivity) { resource ->
-                        when (resource) {
-                            is Resource.Loading -> {
-                                loading.visible()
-                                rvStory.gone()
-                            }
-                            is Resource.Success -> {
-                                loading.gone()
-                                rvStory.visible()
-
-                                val stories = resource.data?.sortedByDescending { it.createdAt }
-
-                                if (!stories.isNullOrEmpty()) {
-                                    adapter.stories = stories as MutableList<Story>
-                                    showEmptyStories(false)
-                                } else showEmptyStories(true)
-
-                            }
-                            is Resource.Error -> {
-                                loading.gone()
-                                rvStory.gone()
-                                this@MainActivity.showToast(resource.message.toString())
-                                Timber.e(resource.message.toString())
-                            }
-                        }
+                    viewModel.getStories(token).observe(this@MainActivity) {
+                        storiesAdapter.submitData(lifecycle, it)
                     }
 
-                    rvStory.setHasFixedSize(true)
-                    rvStory.adapter = adapter
-
+                    loading.gone()
                     swipeMain.isRefreshing = false
+
+                    rvStory.apply {
+                        adapter =
+                            storiesAdapter.withLoadStateFooter(footer = StoryLoadingStateAdapter { storiesAdapter.retry() })
+                        setHasFixedSize(true)
+                    }
+                }
+                storiesAdapter.loadStateFlow.collect{
+                    rvStory.smoothScrollToPosition(0)
                 }
 
-            }
-        }
-    }
-
-    private fun showEmptyStories(state: Boolean) {
-        binding.apply {
-            if (state) {
-                imgEmptyState.visible()
-                titleEmptyState.visible()
-                descEmptyState.visible()
-                rvStory.gone()
-            } else {
-                imgEmptyState.gone()
-                titleEmptyState.gone()
-                descEmptyState.gone()
-                rvStory.visible()
             }
         }
     }
@@ -163,10 +131,15 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_settings -> {
+            R.id.action_settings ->
                 Intent(this, SettingsActivity::class.java).also { intent ->
                     startActivity(intent)
                 }
+            R.id.action_explore_location -> Intent(
+                this,
+                ExploreLocationActivity::class.java
+            ).also { intent ->
+                startActivity(intent)
             }
         }
         return super.onOptionsItemSelected(item)

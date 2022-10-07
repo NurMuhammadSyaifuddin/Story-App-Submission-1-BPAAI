@@ -3,27 +3,18 @@ package com.project.storyapp.ui.main
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.project.core.domain.model.Story
 import com.project.storyapp.R
 import com.project.storyapp.databinding.ItemListStoryBinding
-import com.project.storyapp.utils.DivStoriesCallback
 import com.project.storyapp.utils.getTimeLineUploaded
 import com.project.storyapp.utils.loadImage
 
-class StoriesAdapter: RecyclerView.Adapter<StoriesAdapter.ViewHolder>() {
+class StoriesAdapter: PagingDataAdapter<Story, StoriesAdapter.ViewHolder>(DIFF_CALLBACK) {
 
     private var listener: ((Story, ItemListStoryBinding) -> Unit)? = null
-
-    var stories = mutableListOf<Story>()
-    set(value) {
-        val callback = DivStoriesCallback(field, value)
-        val result = DiffUtil.calculateDiff(callback)
-        field.clear()
-        field.addAll(value)
-        result.dispatchUpdatesTo(this)
-    }
 
     inner class ViewHolder(private val binding: ItemListStoryBinding): RecyclerView.ViewHolder(binding.root) {
         @SuppressLint("SetTextI18n")
@@ -48,12 +39,25 @@ class StoriesAdapter: RecyclerView.Adapter<StoriesAdapter.ViewHolder>() {
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(stories[position])
+        getItem(position)?.let {
+            holder.bind(it)
+        }
     }
-
-    override fun getItemCount(): Int = stories.size
 
     fun onClick(listener: ((Story, ItemListStoryBinding) -> Unit)?){
         this.listener = listener
     }
+
+    companion object {
+        private val DIFF_CALLBACK = object : DiffUtil.ItemCallback<Story>() {
+            override fun areItemsTheSame(oldItem: Story, newItem: Story): Boolean {
+                return oldItem == newItem
+            }
+
+            override fun areContentsTheSame(oldItem: Story, newItem: Story): Boolean {
+                return oldItem.id == newItem.id
+            }
+        }
+    }
+
 }

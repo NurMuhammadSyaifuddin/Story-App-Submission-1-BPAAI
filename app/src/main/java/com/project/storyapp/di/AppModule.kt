@@ -3,6 +3,7 @@ package com.project.storyapp.di
 import com.project.core.domain.usecase.StoryInteractor
 import com.project.core.domain.usecase.StoryUseCase
 import com.project.storyapp.ui.add.AddStoryViewModel
+import com.project.storyapp.ui.explore_location.ExploreLocationViewModel
 import com.project.storyapp.ui.login.LoginViewModel
 import com.project.storyapp.ui.main.MainViewModel
 import com.project.storyapp.ui.settings.SettingsViewModel
@@ -22,4 +23,5 @@ val viewModelModule = module {
     viewModel { SplashViewModel(get()) }
     viewModel { AddStoryViewModel(get(), get()) }
     viewModel { SettingsViewModel(get()) }
+    viewModel { ExploreLocationViewModel(get(), get()) }
 }

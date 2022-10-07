@@ -4,7 +4,9 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
+import androidx.room.Room
 import com.project.core.BuildConfig
+import com.project.core.data.source.local.StoryDatabase
 import com.project.core.data.source.remote.RemoteDataSource
 import com.project.core.data.source.remote.network.ApiService
 import com.project.core.data.source.repository.StoryRepository
@@ -12,6 +14,7 @@ import com.project.core.domain.repository.IStoryRepository
 import com.project.core.preference.UserPreference
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
+import org.koin.android.ext.koin.androidContext
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -53,7 +56,20 @@ val networkModule = module {
 val repositoryModule = module {
     single { RemoteDataSource(get()) }
     single<IStoryRepository> {
-        StoryRepository(get())
+        StoryRepository(get(), get(), get())
+    }
+}
+
+val databaseModule = module {
+    factory { get<StoryDatabase>().storyDao() }
+    single {
+        Room.databaseBuilder(
+            androidContext(),
+            StoryDatabase::class.java,
+            "story.db"
+        )
+            .fallbackToDestructiveMigration()
+            .build()
     }
 }
 

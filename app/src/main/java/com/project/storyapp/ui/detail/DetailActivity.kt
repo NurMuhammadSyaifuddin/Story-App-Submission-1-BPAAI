@@ -8,6 +8,7 @@ import com.project.storyapp.R
 import com.project.storyapp.databinding.ActivityDetailBinding
 import com.project.storyapp.utils.getTimeLineUploaded
 import com.project.storyapp.utils.loadImage
+import com.project.storyapp.utils.parseAddressLocation
 
 class DetailActivity : AppCompatActivity() {
 
@@ -29,11 +30,24 @@ class DetailActivity : AppCompatActivity() {
             imgPoster.loadImage(story?.photoUrl.toString())
             tvName.text = story?.name.toString()
             tvDesc.text = story?.description.toString()
-            tvUploadedStory.text = "🕓 ${getString(R.string.text_uploaded)} ${getTimeLineUploaded(this@DetailActivity, story?.createdAt.toString())}"
+            tvLocation.text = if (story?.lat != null || story?.lon != null)
+                parseAddressLocation(
+                    this@DetailActivity,
+                    story.lat?.toDouble() as Double,
+                    story.lon?.toDouble() as Double
+                )
+            else getString(R.string.no_location)
+
+            tvUploadedStory.text = "🕓 ${getString(R.string.text_uploaded)} ${
+                getTimeLineUploaded(
+                    this@DetailActivity,
+                    story?.createdAt.toString()
+                )
+            }"
         }
     }
 
-    companion object{
+    companion object {
         const val DATA_STORY = "data_story"
     }
 }
